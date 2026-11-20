@@ -243,7 +243,7 @@
   .hero {
     min-height: 720px;
     padding: 110px 0 65px;
-    background-position: 62% center;
+    background-position: -90% center;
   }
 
   .hero h1 {
