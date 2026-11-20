@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Mail } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 
 import { Button } from "@/components/button";
 
@@ -29,9 +30,13 @@ export default function Contact() {
           </h2>
 
           <div className="contact-links">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <a
+              href="https://instagram.com/mozzhakova_/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span className="instagram-mark" aria-hidden="true">
-                ◎
+                <FaInstagram />
               </span>
               @mozzhakova_
             </a>
