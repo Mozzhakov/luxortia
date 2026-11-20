@@ -1,0 +1,81 @@
+.site-header {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4.7%;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 13, 16, 0.24);
+}
+
+.logo {
+  width: 92px;
+  height: 72px;
+  position: relative;
+  font-family: Georgia, serif;
+  font-size: 43px;
+  line-height: 1;
+  color: #f3f3f2;
+}
+
+.logo span {
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.logo b {
+  font-weight: 400;
+  color: #4b9be2;
+  position: absolute;
+  left: 19px;
+  top: 17px;
+}
+
+.logo small {
+  font:
+    12px Georgia,
+    serif;
+  position: absolute;
+  left: 39px;
+  bottom: 5px;
+}
+
+.nav {
+  display: flex;
+  gap: 65px;
+  margin-left: 120px;
+}
+
+.nav a,
+.header-cta,
+.availability,
+.keywords,
+.contact-links {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  color: #dededc;
+  transition: color 0.25s;
+}
+
+.nav a:hover {
+  color: var(--blue);
+}
+
+.header-cta {
+  min-width: 242px;
+  justify-content: space-between;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: 0;
+}

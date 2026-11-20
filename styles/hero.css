@@ -1,0 +1,271 @@
+.hero {
+  min-height: 720px;
+  height: 100vh;
+  position: relative;
+  background: var(--bg-deep);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Desktop image on the right */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
+  background-image: var(--photo);
+  background-size: cover;
+  background-position: center 27%;
+  z-index: 0;
+}
+
+/* Blue glow at the bottom */
+.section-photo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35%;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse at 15% 100%,
+    rgba(40, 133, 207, 0.55),
+    transparent 48%
+  );
+  pointer-events: none;
+}
+
+/* Smooth dark section → photo transition */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      var(--bg-deep) 0%,
+      var(--bg-deep) 37%,
+      rgba(17, 19, 21, 0.98) 43%,
+      rgba(17, 19, 21, 0.9) 48%,
+      rgba(17, 19, 21, 0.7) 54%,
+      rgba(17, 19, 21, 0.42) 60%,
+      rgba(17, 19, 21, 0.16) 67%,
+      transparent 76%
+    ),
+    linear-gradient(0deg, rgba(9, 12, 15, 0.65) 0%, transparent 28%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  padding-top: 80px;
+}
+
+.hero-copy {
+  padding-top: 56px;
+  position: relative;
+  z-index: 3;
+}
+
+.availability {
+  color: #e0e4e6;
+  margin-bottom: 27px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.availability i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  margin: 0 12px;
+}
+
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
+  margin: 0;
+  font-size: clamp(62px, 7vw, 100px);
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 1.42;
+  color: #d3d3d1;
+  margin: 27px 0 44px;
+}
+
+.signature {
+  font:
+    28px Georgia,
+    serif;
+  margin: 0 0 10px;
+}
+
+.signature-line {
+  height: 1px;
+  width: 310px;
+  background: linear-gradient(90deg, var(--blue), rgba(255, 255, 255, 0.25));
+}
+
+.hero-card {
+  width: 266px;
+  padding: 26px 23px;
+  align-self: end;
+  justify-self: center;
+  margin: 170px 0 12px;
+  position: relative;
+}
+
+.hero-card span {
+  font:
+    24px Georgia,
+    serif;
+  line-height: 1.08;
+}
+
+.card-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 20px 0 14px;
+}
+
+.hero-card small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 22px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 55px;
+  writing-mode: vertical-rl;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  font-size: 11px;
+}
+
+.scroll-indicator span {
+  height: 65px;
+  width: 1px;
+  background: linear-gradient(var(--blue), transparent);
+}
+
+/* Tablet + Mobile */
+@media (max-width: 900px) {
+  .hero {
+    min-height: 780px;
+    height: auto;
+    padding: 120px 0 80px;
+
+    background-image: var(--photo);
+    background-size: cover;
+    background-position: 61% center;
+  }
+
+  /* Desktop separate image is disabled */
+  .hero::before {
+    display: none;
+  }
+
+  .hero-overlay {
+    display: block;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 11, 14, 0.94) 0%,
+        rgba(8, 11, 14, 0.67) 42%,
+        rgba(8, 11, 14, 0.12) 75%
+      ),
+      linear-gradient(0deg, rgba(9, 12, 15, 0.72), transparent 28%);
+  }
+
+  .section-photo::after {
+    background: radial-gradient(
+      ellipse at 20% 100%,
+      rgba(40, 133, 207, 0.9),
+      transparent 48%
+    );
+  }
+
+  .hero-content {
+    display: block;
+    padding-top: 30px;
+  }
+
+  .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 15vw, 88px);
+  }
+
+  .hero-card {
+    margin: 60px 0 0;
+    width: 265px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 720px;
+    padding: 110px 0 65px;
+    background-position: 62% center;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 16vw, 76px);
+  }
+
+  .hero-description {
+    font-size: 17px;
+    margin: 24px 0 36px;
+  }
+
+  .signature {
+    font-size: 25px;
+  }
+
+  .signature-line {
+    width: 250px;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: 265px;
+    margin-top: 45px;
+  }
+}

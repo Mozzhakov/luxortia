@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@import "../styles/base.css";
+@import "../styles/header.css";
+@import "../styles/hero.css";
+@import "../styles/portfolio.css";
+@import "../styles/services.css";
+@import "../styles/about.css";
+@import "../styles/contact.css";
+@import "../styles/footer.css";
+@import "../styles/responsive.css";

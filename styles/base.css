@@ -1,0 +1,131 @@
+:root {
+  --bg-deep: #111315;
+  --bg-main: #181b20;
+  --bg-soft: #21282f;
+  --text-primary: #f1f0ed;
+  --text-secondary: #c5c6c7;
+  --text-muted: #8f969d;
+  --blue: #62b7f3;
+  --blue-soft: #8dccf5;
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --background: #111315;
+  --foreground: #f1f0ed;
+  --border: rgba(255, 255, 255, 0.16);
+  --ring: #62b7f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-anchor: none;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: var(--blue);
+  color: var(--bg-deep);
+}
+
+.container {
+  width: min(1180px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
+.outline-button {
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  border-radius: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 31px;
+  padding: 13px 28px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  transition: all 0.3s;
+}
+
+.outline-button:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 25px rgba(98, 183, 243, 0.25);
+  transform: translateY(-2px);
+}
+
+.filled {
+  background: linear-gradient(110deg, #275d8d, #62b7f3);
+  border-color: #5da9df;
+  min-width: 260px;
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.035)
+  );
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  border-radius: 13px;
+}
+
+.section-glow {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    var(--bg-deep),
+    #151b21 55%,
+    var(--bg-deep)
+  );
+}
+
+.section-glow::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: -100px;
+  bottom: 0;
+  background: rgba(32, 143, 235, 0.33);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: var(--blue);
+  margin: 0 0 20px;
+  letter-spacing: 0.16em;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.dot {
+  color: var(--blue);
+}

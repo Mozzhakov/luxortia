@@ -1,0 +1,778 @@
+.portfolio {
+  padding: 76px 0 0;
+  overflow-anchor: none;
+}
+
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 24px;
+}
+
+.portfolio h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
+  margin: 0;
+  font-size: 53px;
+}
+
+.portfolio-intro > p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #d5d6d6;
+  margin: 24px 0;
+}
+
+.mini-line {
+  width: 59px;
+  height: 1px;
+  background: var(--blue);
+  margin: 26px 0;
+}
+
+.keywords {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: #c8d0d5;
+  text-transform: uppercase;
+}
+
+.keywords i {
+  color: var(--blue);
+  font-style: normal;
+  margin: 0 8px;
+}
+
+/* =========================================================
+   SLIDER CONTROLS
+   ========================================================= */
+
+.slider-controls {
+  display: none;
+}
+
+.slider-controls button {
+  width: 59px;
+  height: 59px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border-radius: 50%;
+
+  color: var(--text-primary);
+
+  place-items: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.slider-controls button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+
+  background: rgba(98, 183, 243, 0.06);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress span {
+  width: 42px;
+  height: 2px;
+
+  background: var(--blue);
+}
+
+.progress em {
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+/* =========================================================
+   PORTFOLIO CATEGORY CARDS
+   ========================================================= */
+
+.portfolio-scroll {
+  display: flex;
+  gap: 7px;
+
+  width: 100%;
+  min-width: 0;
+
+  overflow: visible;
+}
+
+.portfolio-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-card {
+  overflow-anchor: none;
+
+  flex: 1 1 0;
+  min-width: 0;
+  height: 432px;
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+
+  background-color: transparent;
+  background-image: var(--photo);
+  background-size: cover;
+  background-position: center;
+
+  color: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.portfolio-card:hover,
+.portfolio-card.current {
+  transform: translateY(-6px);
+
+  border-color: var(--blue);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card.current {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.22),
+    0 0 22px rgba(98, 183, 243, 0.12);
+}
+
+.card-shade {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 14, 0.84) 0%,
+    rgba(10, 12, 14, 0.12) 35%,
+    rgba(6, 10, 13, 0.89) 100%
+  );
+
+  transition: background 0.35s ease;
+}
+
+.portfolio-card:hover .card-shade,
+.portfolio-card.current .card-shade {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 14, 0.72) 0%,
+    rgba(10, 12, 14, 0.06) 35%,
+    rgba(6, 10, 13, 0.82) 100%
+  );
+}
+
+.card-top,
+.portfolio-card > p {
+  position: absolute;
+
+  left: 18px;
+  right: 16px;
+
+  z-index: 1;
+}
+
+.card-top {
+  top: 17px;
+}
+
+.card-top small {
+  font-size: 11px;
+}
+
+.card-top h3 {
+  font:
+    23px/0.98 Georgia,
+    serif;
+
+  font-weight: 400;
+
+  margin: 21px 0 12px;
+
+  letter-spacing: -0.04em;
+}
+
+.card-top svg {
+  margin-top: 0;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.portfolio-card:hover .card-top svg,
+.portfolio-card.current .card-top svg {
+  transform: translateX(4px);
+  color: var(--blue);
+}
+
+.portfolio-card > p {
+  bottom: 16px;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  line-height: 2;
+
+  text-transform: uppercase;
+}
+
+.portfolio-card > p span {
+  display: block;
+}
+
+/* =========================================================
+   VIDEO SECTION
+   ========================================================= */
+
+.portfolio-videos {
+  overflow-anchor: none;
+
+  max-height: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  overflow: hidden;
+
+  transform: translateY(-18px);
+
+  margin-top: 0;
+
+  border-top: 1px solid transparent;
+
+  transition:
+    max-height 0.7s ease,
+    opacity 0.35s ease,
+    transform 0.45s ease,
+    margin-top 0.45s ease,
+    border-color 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.portfolio-videos.open {
+  max-height: 3000px;
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  margin-top: 42px;
+
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.portfolio-videos .container {
+  padding-top: 42px;
+  padding-bottom: 24px;
+
+  opacity: 0;
+
+  transform: translateY(-12px);
+
+  transition:
+    opacity 0.4s ease 0.08s,
+    transform 0.45s ease 0.08s;
+}
+
+.portfolio-videos.open .container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   VIDEO HEADER
+   ========================================================= */
+
+.portfolio-videos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 30px;
+
+  margin-bottom: 32px;
+}
+
+.portfolio-videos-header > div {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.portfolio-videos-number {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+
+  color: var(--blue);
+}
+
+.portfolio-videos-header h3 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+}
+
+.portfolio-videos-close {
+  padding: 10px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.portfolio-videos-close:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+
+  background: rgba(98, 183, 243, 0.05);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   VIDEO GRID — DESKTOP
+   ========================================================= */
+
+.portfolio-video-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+  max-width: 1080px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   VIDEO CARD / PHONE-LIKE FRAME
+   ========================================================= */
+
+.portfolio-video {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  padding: 5px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(98, 183, 243, 0.7);
+  border-radius: 24px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(98, 183, 243, 0.14),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(98, 183, 243, 0.05),
+    0 0 18px rgba(98, 183, 243, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.portfolio-video:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--blue);
+
+  box-shadow:
+    0 0 0 1px rgba(98, 183, 243, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.22),
+    0 0 26px rgba(98, 183, 243, 0.14);
+}
+
+/* Inner video */
+
+.portfolio-video video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 19px;
+
+  background: #050607;
+}
+
+/* Small video number */
+
+.portfolio-video > span {
+  position: absolute;
+
+  left: 14px;
+  bottom: 14px;
+
+  z-index: 2;
+
+  width: 29px;
+  height: 29px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(98, 183, 243, 0.7);
+  border-radius: 50%;
+
+  background: rgba(8, 11, 14, 0.78);
+
+  backdrop-filter: blur(8px);
+
+  color: var(--blue);
+
+  font-size: 9px;
+  letter-spacing: 0.06em;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   LOADING / ERROR STATUS
+   ========================================================= */
+
+.portfolio-videos-status {
+  margin: 30px 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+
+.portfolio-quote {
+  margin-top: 32px;
+
+  padding: 40px 4.5%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  line-height: 2;
+}
+
+.portfolio-quote blockquote {
+  margin: 0;
+
+  font:
+    italic 24px Georgia,
+    serif;
+
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .portfolio {
+    padding-top: 65px;
+  }
+
+  .portfolio-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-intro {
+    margin-bottom: 18px;
+  }
+
+  /* Category slider buttons */
+
+  .slider-controls {
+    display: flex;
+
+    gap: 45px;
+
+    margin-top: 35px;
+  }
+
+  .slider-controls button {
+    display: grid;
+  }
+
+  .progress {
+    display: flex;
+
+    margin-top: 25px;
+  }
+
+  /* Horizontal category carousel */
+
+  .portfolio-scroll {
+    display: flex;
+
+    gap: 12px;
+
+    width: auto;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    margin-right: -20px;
+
+    padding-top: 8px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portfolio-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-card {
+    flex: 0 0 220px;
+
+    min-width: 220px;
+
+    scroll-snap-align: start;
+  }
+
+  /* Video section */
+
+  .portfolio-videos.open {
+    margin-top: 32px;
+  }
+
+  .portfolio-videos .container {
+    padding-top: 34px;
+  }
+
+  /* Two videos per row */
+
+  .portfolio-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    max-width: 720px;
+  }
+
+  .portfolio-video {
+    border-radius: 22px;
+  }
+
+  .portfolio-video video {
+    border-radius: 17px;
+  }
+
+  /* Quote */
+
+  .portfolio-quote {
+    gap: 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portfolio-quote blockquote {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .portfolio h2 {
+    font-size: 46px;
+  }
+
+  .portfolio-intro > p {
+    font-size: 16px;
+  }
+
+  /* Category cards */
+
+  .portfolio-card {
+    flex: 0 0 78vw;
+
+    min-width: 78vw;
+
+    height: 440px;
+  }
+
+  /* Slider buttons */
+
+  .slider-controls {
+    gap: 20px;
+
+    margin-top: 30px;
+  }
+
+  .slider-controls button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .progress {
+    margin-top: 20px;
+  }
+
+  /* Video section */
+
+  .portfolio-videos.open {
+    margin-top: 28px;
+  }
+
+  .portfolio-videos .container {
+    padding-top: 28px;
+  }
+
+  /* Header */
+
+  .portfolio-videos-header {
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .portfolio-videos-header > div {
+    display: block;
+  }
+
+  .portfolio-videos-number {
+    display: block;
+
+    margin-bottom: 8px;
+  }
+
+  .portfolio-videos-header h3 {
+    font-size: 27px;
+  }
+
+  .portfolio-videos-close {
+    padding: 8px 13px;
+
+    font-size: 10px;
+  }
+
+  /* Horizontal video slider */
+
+  .portfolio-video-grid {
+    display: flex;
+
+    gap: 14px;
+
+    max-width: none;
+
+    overflow-x: auto;
+
+    margin-right: -16px;
+
+    padding-right: 16px;
+    padding-bottom: 14px;
+
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portfolio-video-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-video {
+    flex: 0 0 72vw;
+
+    min-width: 72vw;
+
+    padding: 5px;
+
+    border-radius: 24px;
+
+    scroll-snap-align: start;
+  }
+
+  .portfolio-video video {
+    border-radius: 19px;
+  }
+
+  /* Quote */
+
+  .portfolio-quote {
+    padding: 32px 20px;
+  }
+}

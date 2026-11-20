@@ -1,0 +1,246 @@
+.about {
+  min-height: 600px;
+  position: relative;
+  background: var(--bg-main);
+  overflow: hidden;
+}
+
+/* Фото слева */
+.about-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 42%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center -80px;
+  background-repeat: no-repeat;
+
+  filter: saturate(0.8);
+
+  z-index: 0;
+}
+
+/* Градиент только на границе фото и контента */
+.about::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 26%;
+  width: 16%;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(24, 27, 32, 0.08) 15%,
+    rgba(24, 27, 32, 0.22) 30%,
+    rgba(24, 27, 32, 0.42) 48%,
+    rgba(24, 27, 32, 0.68) 66%,
+    rgba(24, 27, 32, 0.88) 82%,
+    var(--bg-main) 100%
+  );
+
+  pointer-events: none;
+}
+
+.about-layout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    42%
+    minmax(0, 1fr)
+    312px;
+
+  gap: 50px;
+
+  align-items: center;
+
+  min-height: 600px;
+}
+
+/* Текст начинается строго после фото */
+.about-copy {
+  grid-column: 2;
+}
+
+.about h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.93;
+
+  font-size: 61px;
+
+  margin: 0 0 25px;
+}
+
+.about-copy > p {
+  font-size: 17px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.5;
+
+  margin: 0 0 21px;
+}
+
+.about-copy .outline-button {
+  margin-top: 8px;
+}
+
+.features {
+  grid-column: 3;
+
+  padding: 34px 29px;
+}
+
+.features p {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  margin: 0 0 26px;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+}
+
+.features p:last-child {
+  margin-bottom: 0;
+}
+
+.features i {
+  flex: 0 0 auto;
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--blue);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 11px var(--blue);
+}
+
+/* Tablet + Mobile */
+@media (max-width: 900px) {
+  .about {
+    min-height: 0;
+
+    padding: 0 0 80px;
+  }
+
+  .about-image {
+    position: relative;
+
+    width: 100%;
+    height: 440px;
+
+    background-position: center top;
+  }
+
+  /*
+    На планшете градиент уже идёт сверху вниз:
+    фото -> тёмный контент
+  */
+  .about::after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+
+    width: 100%;
+    height: 440px;
+
+    background: linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(24, 27, 32, 0.35) 70%,
+      rgba(24, 27, 32, 0.75) 85%,
+      var(--bg-main) 100%
+    );
+  }
+
+  .about-layout {
+    display: block;
+
+    min-height: 0;
+
+    margin-top: -25px;
+  }
+
+  .about-copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .about h2 {
+    font-size: 53px;
+  }
+
+  .features {
+    margin-top: 38px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .about {
+    padding-bottom: 65px;
+  }
+
+  .about-image {
+    height: 360px;
+
+    background-position: center top;
+  }
+
+  .about::after {
+    height: 360px;
+
+    background: linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(24, 27, 32, 0.4) 68%,
+      rgba(24, 27, 32, 0.8) 84%,
+      var(--bg-main) 100%
+    );
+  }
+
+  .about-layout {
+    margin-top: -20px;
+  }
+
+  .about h2 {
+    font-size: 46px;
+  }
+
+  .about-copy > p {
+    font-size: 16px;
+  }
+
+  .features {
+    padding: 28px 22px;
+  }
+
+  .features p {
+    font-size: 12px;
+
+    gap: 13px;
+
+    margin-bottom: 22px;
+  }
+}
