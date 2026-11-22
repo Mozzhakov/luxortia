@@ -29,6 +29,12 @@ export default function Contact() {
             WORTH WATCHING<span className="dot">.</span>
           </h2>
 
+          <p>
+            Have a clear plan or just a rough idea?
+            <br />
+            Either way, I’d love to hear about it.
+          </p>
+
           <div className="contact-links">
             <a
               href="https://instagram.com/mozzhakova_/"

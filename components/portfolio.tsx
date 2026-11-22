@@ -155,13 +155,13 @@ export default function Portfolio() {
           <h2>
             <AccentTitle>PORTFOLIO</AccentTitle>
           </h2>
-
+          {/* Explore real projects and see what we could create for your business, event, or personal story. */}
           <p>
-            A collection of real projects
+            Explore real projects
             <br />
-            for brands, events and people
+            and see what we could create
             <br />
-            who value visual storytelling.
+            for your business, event, or personal story.
           </p>
 
           <div className="mini-line" />
@@ -304,7 +304,7 @@ export default function Portfolio() {
           SAME VISION.
         </span>
 
-        <blockquote>“More than content — it&apos;s a feeling.”</blockquote>
+        <blockquote>“Every project deserves its own story.”</blockquote>
 
         <span>
           LET&apos;S CREATE

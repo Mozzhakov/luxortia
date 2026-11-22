@@ -34,11 +34,13 @@ export default function About() {
             <br />
             for brands, events and people.
           </p>
-
+          {/*    */}
           <p>
-            I believe in real moments, beautiful details
+            You don’t need to have everything figured out before reaching out.
             <br />
-            and content that drives results.
+            I can help with ideas, locations, and planning
+            <br />
+            so you feel confident and prepared for your shoot.
           </p>
 
           <a

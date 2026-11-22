@@ -27,11 +27,13 @@ export default function Hero() {
             CREATOR
             {/* <span className="dot">.</span> */}
           </h1>
-
+          {/* I create videos that help
+           businesses stand out and turn 
+           special moments into lasting memories. */}
           <p className="hero-description">
-            I create cinematic content that
-            <br className="desktop" /> elevates brands, events and
-            <br className="desktop" /> real stories.
+            I create videos that help businesses
+            <br className="desktop" /> stand out and turn special moments
+            <br className="desktop" /> into lasting memories.
           </p>
 
           <p className="signature">Yana Mozzhakova</p>
@@ -48,9 +50,9 @@ export default function Hero() {
 
           <div className="card-line" />
 
-          <small>MOBILE-FIRST</small>
-          <small>STORY-DRIVEN</small>
-          <small>RESULTS-FOCUSED</small>
+          <small>CREATIVE APPROACH</small>
+          <small>THOUGHTFUL PLANNING</small>
+          <small>QUALITY CONTENT</small>
 
           <ArrowUpRight className="card-arrow" size={18} />
         </div>

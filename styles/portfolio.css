@@ -282,7 +282,7 @@
 }
 
 .portfolio-videos.open {
-  max-height: 3000px;
+  max-height: 5000px;
 
   opacity: 1;
   visibility: visible;

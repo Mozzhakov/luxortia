@@ -11,25 +11,25 @@ const services = [
   [
     "01",
     "BUSINESS CONTENT",
-    "Restaurants, beauty, automotive, local businesses & more.",
+    "Videos that showcase your products, services, and what makes your business worth choosing.",
     images.business,
   ],
   [
     "02",
     "EVENT COVERAGE",
-    "Conferences, celebrations, corporate & weddings.",
+    "Capture the highlights, atmosphere, and moments you’ll want to relive or share.",
     images.event,
   ],
   [
     "03",
     "SOCIAL MEDIA CONTENT",
-    "Reels, TikToks, short-form videos that get attention.",
+    "Ready-to-post videos that keep your social media active and showcase what you offer.",
     images.social_media,
   ],
   [
     "04",
     "PERSONAL CONTENT",
-    "Video portraits, lifestyle & personal projects.",
+    "Beautifully captured memories of the people, milestones, and moments that matter to you.",
     images.personal,
   ],
 ];
@@ -45,12 +45,16 @@ export default function Services() {
             WHAT
             <br />I DO<span className="dot">.</span>
           </h2>
-
+          {/* Not sure where to start? I’ll help you figure it out.
+From planning the shoot to delivering your finished video, I’ll guide you through the process. */}
           <p>
-            From scroll-stopping social content
+            Not sure where to start?
             <br />
-            to full-scale event coverage —
-            <br />I bring your vision to life.
+            I’ll help you figure it out.
+            <br />
+            From planning the shoot to delivering your finished video,
+            <br />
+            I’ll guide you through the process.
           </p>
         </div>
 
@@ -72,6 +76,9 @@ export default function Services() {
               />
             </article>
           ))}
+          <p className="service-afterword">
+            Available for one-time projects and ongoing content partnerships.
+          </p>
         </div>
       </div>
     </section>
