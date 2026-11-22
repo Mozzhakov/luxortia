@@ -13,6 +13,9 @@ const r2 = new S3Client({
 
 const allowedCategories = ["food", "beauty", "events", "people", "automotive"];
 
+const videoExtensions = [".mp4", ".webm", ".mov"];
+const posterExtensions = [".jpg", ".jpeg", ".webp", ".png"];
+
 function createPublicUrl(key: string) {
   const encodedKey = key
     .split("/")
@@ -20,6 +23,12 @@ function createPublicUrl(key: string) {
     .join("/");
 
   return `${process.env.R2_PUBLIC_URL}/${encodedKey}`;
+}
+
+function getBaseName(key: string) {
+  const fileName = key.split("/").pop() ?? "";
+
+  return fileName.replace(/\.[^.]+$/, "");
 }
 
 export async function GET(
@@ -46,24 +55,46 @@ export async function GET(
       }),
     );
 
-    const videos =
-      result.Contents?.filter((object) => {
+    const objects = result.Contents ?? [];
+
+    const posters = objects.filter((object) => {
+      if (!object.Key) return false;
+
+      const key = object.Key.toLowerCase();
+
+      return posterExtensions.some((extension) => key.endsWith(extension));
+    });
+
+    const videos = objects
+      .filter((object) => {
         if (!object.Key) return false;
 
         const key = object.Key.toLowerCase();
 
-        return (
-          key.endsWith(".mp4") || key.endsWith(".webm") || key.endsWith(".mov")
-        );
+        return videoExtensions.some((extension) => key.endsWith(extension));
       })
-        .sort((a, b) => (a.Key ?? "").localeCompare(b.Key ?? ""))
-        .map((object) => ({
-          key: object.Key!,
-          name: object.Key!.split("/").pop()!,
-          url: createPublicUrl(object.Key!),
+      .sort((a, b) => (a.Key ?? "").localeCompare(b.Key ?? ""))
+      .map((object) => {
+        const videoKey = object.Key!;
+        const baseName = getBaseName(videoKey);
+
+        const matchingPoster = posters.find((poster) => {
+          if (!poster.Key) return false;
+
+          return getBaseName(poster.Key) === baseName;
+        });
+
+        return {
+          key: videoKey,
+          name: videoKey.split("/").pop()!,
+          url: createPublicUrl(videoKey),
+          poster: matchingPoster?.Key
+            ? createPublicUrl(matchingPoster.Key)
+            : null,
           size: object.Size ?? 0,
           lastModified: object.LastModified ?? null,
-        })) ?? [];
+        };
+      });
 
     return NextResponse.json(videos);
   } catch (error) {

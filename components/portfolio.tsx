@@ -18,6 +18,7 @@ type VideoItem = {
   key: string;
   name: string;
   url: string;
+  poster: string | null;
   size: number;
   lastModified: string | null;
 };
@@ -284,6 +285,7 @@ export default function Portfolio() {
                         controls
                         playsInline
                         preload="metadata"
+                        poster={video.poster ?? undefined}
                         src={video.url}
                       />
 
